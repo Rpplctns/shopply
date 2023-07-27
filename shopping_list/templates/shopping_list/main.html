@@ -1,0 +1,21 @@
+<html lang="en">
+<head>
+    <title>Shopply</title>
+    {% load static %}
+    <script src="{% static 'shopping_list/js/script.js' %}"></script>
+</head>
+<body>
+<form action="{% url 'open' %}" method="post">
+    {% csrf_token %}
+    <label>
+        <input name="list_id" type="text">
+    </label>
+    <input type="submit" value="open">
+</form>
+<form action="{% url 'create_list' %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="create list">
+</form>
+<p>{{ error_message }}</p>
+</body>
+</html>

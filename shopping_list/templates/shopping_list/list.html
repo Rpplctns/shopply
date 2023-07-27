@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <title>{{ list.title }}</title>
+    {% load static %}
+    <script src="{% static 'shopping_list/js/script.js' %}"></script>
+    <script src="{% static 'shopping_list/js/list-element.js' %}"></script>
+</head>
+<body>
+<div id="data_container" data-list_id="{{ list.id }}" data-list_title="{{ list.title }}" style="visibility: hidden"></div>
+<label>
+    <input id="list_name" value="{{ list.title }}"/>
+</label>
+<button onclick="rename_list()">save</button>
+<p>Passcode: {{ list.id }}</p>
+<ul id="items">
+    {% for item in list.item_set.all %}
+        <list-element
+                id="item-{{ item.id }}"
+                data-text="{{ item.name }}"
+                data-id="{{ item.id }}"
+        ></list-element>
+    {% endfor %}
+</ul>
+<label>
+    <input id="item_name">
+</label>
+<button onclick="new_item()">add</button>
+<form action="{% url 'home' %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="back">
+</form>
+
+<form action="{% url 'delete_list' list.id %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="remove">
+</form>
+</body>
+</html>
