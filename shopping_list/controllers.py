@@ -13,6 +13,11 @@ def manage_item(request):
         i = Item(name=get_data(request, "name"), marked=False, list=List.objects.get(id=get_data(request, "list")))
         i.save()
         return JsonResponse({"status": "success", "payload": {"id": i.id}})
+    if request.method == "PUT":
+        i = Item.objects.get(id=get_data(request, "id"))
+        i.marked = get_data(request, "marked")
+        i.save()
+        return JsonResponse({"status": "success"})
 
 
 def manage_list(request):

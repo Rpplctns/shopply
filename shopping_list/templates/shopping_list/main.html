@@ -3,19 +3,27 @@
     <title>Shopply</title>
     {% load static %}
     <script src="{% static 'shopping_list/js/script.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'shopping_list/styles/style.css' %}">
+    <link rel="icon" href="{% static 'shopping_list/favicon.ico' %}">
 </head>
 <body>
+<div class="main_container">
+<h1>Create a shopping list or join existing one</h1>
+<form action="{% url 'create_list' %}" method="post">
+    {% csrf_token %}
+    <label>
+        <input class="button" placeholder="name" name="list_name" type="text">
+    </label>
+    <input class="button" type="submit" value="Create new">
+</form>
 <form action="{% url 'open' %}" method="post">
     {% csrf_token %}
     <label>
-        <input name="list_id" type="text">
+        <input class="button" placeholder="passcode" name="list_id" type="text">
     </label>
-    <input type="submit" value="open">
-</form>
-<form action="{% url 'create_list' %}" method="post">
-    {% csrf_token %}
-    <input type="submit" value="create list">
+    <input class="button" type="submit" value="Join existing">
 </form>
 <p>{{ error_message }}</p>
+</div>
 </body>
 </html>

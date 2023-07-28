@@ -1,0 +1,101 @@
+* {
+    font-family: "Liberation Sans";
+    font-size: large;
+}
+
+h1 {
+    font-size: x-large;
+    font-style: normal;
+    font-weight: normal;
+    margin: 0;
+}
+
+h2 {
+    color: grey;
+    font-size: small;
+    font-style: italic;
+    font-weight: normal;
+    margin: 0;
+}
+
+p {
+    align-self: flex-start;
+    text-align: left;
+    margin: 0;
+}
+
+i {
+    color: blueviolet;
+}
+
+body {
+    background: white url("../images/back.jpg");
+    background-size: 500px;
+    justify-content: center;
+    align-content: center;
+    height: 90%;
+    display: flex;
+}
+
+.main_container {
+    background-color: white;
+    margin: auto;
+    padding: 70px;
+    width: 530px;
+    box-shadow: 0 0 40px blueviolet;
+    border-radius: 30px;
+    flex-flow: wrap;
+    display: flex;
+    gap: 30px 20px
+}
+
+form {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    gap: 30px
+}
+
+.button {
+    align-self: center;
+    background-color: transparent;
+    border: 3px blueviolet solid;
+    border-radius: 20px;
+    outline: none;
+    color: black;
+    width: 250px;
+    padding: 20px;
+}
+
+.icon-button {
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: 3px blueviolet solid;
+    border-radius: 10px;
+    outline: none;
+    right: 0;
+}
+
+.title {
+    border: none;
+    border-bottom: 3px blueviolet solid;
+    width: 410px;
+    left: 0;
+    height: 40px;
+    outline: none;
+}
+
+.new-element-field {
+    border: none;
+    border-bottom: 3px blueviolet solid;
+    width: 470px;
+    left: 0;
+    height: 40px;
+    outline: none;
+}
+
+ul {
+    margin: 20px 0 0;
+    list-style: none;
+}

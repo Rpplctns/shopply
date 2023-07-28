@@ -10,11 +10,14 @@ for shopping list.
 You need to meet the following prerequisites:
  - have python 3 installed,
  - have django library installed,
+ - icons kit on `fontawesome.com`, either on your account or downloaded,
  - have some python IDE, like pycharm or vscode (recommended).
 
 To run the program:
  - First open the file `settings.py` and set the `TIME_ZONE` variable
 for your timezone. You should find the variable in the line 110.
+ - In the file `list.html` put a tag with you fontawesome kit. 
+Read the comment for more information.
  - Open project in terminal and run following commands
 
 ```

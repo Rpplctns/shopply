@@ -3,6 +3,8 @@ const new_item = () => {
         name: document.getElementById("item_name").value,
         list: document.getElementById("data_container").dataset.list_id
     }
+    document.getElementById("item_name").value = ""
+    if(data.name === "") return
     fetch("/api/item/", {
         method: "POST",
         headers: {
@@ -18,13 +20,27 @@ const new_item = () => {
                     'id="item-' + response.payload.id + '"' +
                     'data-text="' + data.name + '" ' +
                     'data-id="' + response.payload.id + '"' +
-                    '></list-element>'
+                    '><i class="fa-solid fa-trash"></i></list-element>'
             }
         )
 }
 
+const mark_item = (id, cb) => {
+    const data = {
+        id: id,
+        marked: cb.checked
+    }
+    fetch("/api/item/", {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+            "X-CSRFToken": getCookie("csrftoken"),
+        },
+        body: JSON.stringify(data),
+    })
+}
+
 const remove_item = (id) => {
-    console.log(id)
     const data = {
         id: id
     }

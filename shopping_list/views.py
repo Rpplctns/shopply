@@ -18,7 +18,10 @@ def shopping_list(request, list_id):
 
 
 def create_list(request):
-    new_list = List(title="New List", created_date=timezone.datetime.now())
+    list_name = request.POST["list_name"]
+    if list_name == "":
+        list_name = "New List"
+    new_list = List(title=list_name, created_date=timezone.datetime.now())
     new_list.save()
     return HttpResponseRedirect(reverse("list", args=(new_list.id,)))
 
